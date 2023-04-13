@@ -1,0 +1,38 @@
+using System;
+
+namespace CentralTelefonica
+{
+    class LlamadaProvincial : Llamada
+    {
+        private int franja;
+
+        public LlamadaProvincial(string numOrigen, string numDestino, int duracion, int franja)
+        {
+            this.numOrigen = numOrigen;
+            this.numDestino = numDestino;
+            this.duracion = duracion;
+            this.franja = franja;
+
+            switch (franja)
+            {
+                case 1:
+                    this.costo = duracion * 0.20;
+                    break;
+                case 2:
+                    this.costo = duracion * 0.25;
+                    break;
+                case 3:
+                    this.costo = duracion * 0.30;
+                    break;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "LA LLAMADA REALIZA EN LA PROVINCIA DUARTE DE " + this.numOrigen + " a " + this.numDestino + " de " + this.duracion + " EN LA FRANJA " + this.franja + ". CON UN COSTO DE " + this.costo + " PESOS DOMINICANOS.";
+        }
+    }
+    
+}
+    
+      
